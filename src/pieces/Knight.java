@@ -3,23 +3,17 @@ package pieces;
 import board.Tile;
 import java.util.ArrayList;
 
-public class King extends Piece {
-
-  King (boolean whiteSide, String boardPosition, String iconPath) {
+public class Knight extends Piece {
+   Knight (boolean whiteSide, String boardPosition, String iconPath) {
     super(whiteSide, boardPosition, iconPath);
   }
 
-  public boolean possibleCheckmate (Tile position [][]) {
-    return true;
-  } 
-
   @Override
   public ArrayList<Tile> moves (Tile position [][], int x, int y) {
-    // {up, left, down, right, upleft, downleft, downright, upright}
-    final int movesX [] = {x + 1, x, x - 1, x, x + 1, x - 1, x - 1, x + 1};
-    final int movesY [] = {y, y - 1, y, y + 1, y - 1, y - 1, y + 1, y + 1};
-
     possibleMoves.clear();
+
+    final int movesX [] = {x + 2, x + 2, x - 2, x - 2, x + 1, x - 1, x + 1, x - 1};
+    final int movesY [] = {y + 1, y - 1, y + 1, y - 1, y + 2, y + 2, y - 2, y - 2};
 
     for (int i = 0; i < DIMENSION; i += 1) {
       int xPos = x + movesX[i];
@@ -29,7 +23,6 @@ public class King extends Piece {
         possibleMoves.add(position[xPos][yPos]);
       }
     }
-
     return possibleMoves;
-  }
+  } 
 }

@@ -21,4 +21,8 @@ public class Tile {
   public boolean isLegalPosition (final Tile anotherTile) {
     return (!occupied || anotherTile.colour != this.colour); 
   }
+
+  public boolean isOppositeColour (final Tile anotherTile) {
+    return this.colour != anotherTile.colour;
+  }
 }

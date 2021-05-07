@@ -4,6 +4,8 @@ import board.Tile;
 import java.util.ArrayList;
 
 public abstract class Piece implements Cloneable {
+  public final int DIMENSION = 8;
+
   private boolean whiteSide;
   private String boardPosition;
   private String iconPath;
@@ -18,7 +20,7 @@ public abstract class Piece implements Cloneable {
 
   public abstract ArrayList<Tile> moves (Tile position [][], int x, int y);
 
-  private boolean isValidPos (final int x, final int y) {
+  public boolean isValidPos (final int x, final int y) {
     return (x >= 0 && y >= 0 && x < DIMENSION && y < DIMENSION);
   }
 }
