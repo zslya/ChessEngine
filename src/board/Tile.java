@@ -6,6 +6,7 @@ public class Tile {
   private boolean occupied;
   private Piece piece;
   private int colour;
+  private boolean selected;
 
   Tile (int colour, Piece piece) {
     if (piece != null) {
